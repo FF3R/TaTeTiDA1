@@ -14,13 +14,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Tamaño del tablero del juego
+
     private int grid_size;
-    // Referencia al layout del tablero del juego
+
     TableLayout gameBoard;
-    // Referencia al texto que muestra el turno actual
     TextView txt_turn;
-    // Matriz que representa el estado del tablero del juego
     char [][] my_board;
     // Turno actual ('X' o 'O')
     char turn;
@@ -30,17 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar el tamaño del tablero a partir de un recurso de cadena
+        // Inicializar el tamaño del tablero
         grid_size = Integer.parseInt(getString(R.string.size_of_board));
         // Inicializar el tablero del juego como una matriz de caracteres
         my_board = new char [grid_size][grid_size];
-        // Obtener referencias a los elementos de la interfaz de usuario
         gameBoard = (TableLayout) findViewById(R.id.mainBoard);
         txt_turn = (TextView) findViewById(R.id.turn);
 
         // Reiniciar el tablero y establecer el turno inicial
         resetBoard();
-        // Actualizar el texto de la interfaz para mostrar el turno actual
+
         txt_turn.setText("Turno de "+turn);
 
         // Configurar los botones del tablero para que respondan a los clics del usuario
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Configurar el botón de reinicio para que reinicie el juego
+
         Button reset_btn = (Button) findViewById(R.id.reset);
         reset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
